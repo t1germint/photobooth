@@ -248,7 +248,8 @@ html, body, #app {
 @keyframes photoBounceTwo {
   0%, 100% { transform: translateY(0) rotate(12deg) scale(1); }
   50% { transform: translateY(-34px) rotate(6deg) scale(1.04); }
-}
+
+
 
 .qr-wrap {
   border: 6px solid #fff;
