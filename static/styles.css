@@ -237,8 +237,8 @@ html, body, #app {
   border: 5px solid #13224f;
   background: linear-gradient(180deg, #274a8f, #10275a 65%, #0b1d46);
   position: relative;
+  z-index: 2;
 }
-
 .printer-body::before {
   content: "";
   position: absolute;
