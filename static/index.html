@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpinShot</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="status"></div>
+
+    <section id="idle" class="screen active center">
+      <div class="spark-layer"></div>
+      <h1 class="headline">STEP IN.</h1>
+      <h2 class="sub-headline">PRESS START!</h2>
+      <div class="hint">One tap. The spin decides.</div>
+      <button id="startBtn" class="arcade-button">START</button>
+    </section>
+
+    <section id="spin" class="screen center">
+      <div class="spark-layer"></div>
+      <div id="goldFlash"></div>
+      <h2 class="headline mini wiggle">SPINNING MODES...</h2>
+      <div class="slot-machine-shell">
+        <div class="spin-grid" id="spinGrid">
+          <div class="spin-cell" data-spin-cell>ICON MODE</div>
+          <div class="spin-cell" data-spin-cell>POWER POSE</div>
+          <div class="spin-cell" data-spin-cell>SOFT LAUNCH</div>
+          <div class="spin-cell" data-spin-cell>BESTIE VIBES</div>
+          <div class="spin-cell active" data-spin-cell>MAIN CHARACTER</div>
+          <div class="spin-cell" data-spin-cell>CAMERA LOVER</div>
+          <div class="spin-cell" data-spin-cell>SQUAD GOALS</div>
+          <div class="spin-cell" data-spin-cell>UNBOTHERED</div>
+          <div class="spin-cell" data-spin-cell>PARTY ANIMAL</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reveal" class="screen center">
+      <div class="spark-layer"></div>
+      <div id="modeText" class="headline"></div>
+      <div id="modePrompt" class="pose"></div>
+    </section>
+
+    <section id="countdown" class="screen center">
+      <div class="spark-layer"></div>
+      <h2 class="headline mini">GET READY!</h2>
+      <div id="countNumber">3</div>
+      <div class="pose">SMILE!</div>
+    </section>
+
+    <section id="capturing" class="screen center">
+      <div class="spark-layer"></div>
+      <div class="capturing">CAPTURING<span id="dots">...</span></div>
+      <button id="operatorContinue" class="hidden arcade-button alt">OPERATOR: FORCE CONTINUE</button>
+      <button id="operatorRestart" class="hidden arcade-button alt">OPERATOR: RESTART</button>
+      <div id="captureMessage"></div>
+    </section>
+
+    <section id="preview" class="screen center">
+      <div class="spark-layer"></div>
+      <div class="frame-wrap">
+        <img id="previewImg" alt="preview" />
+      </div>
+      <div class="mode-line" id="previewModeLine">SUPERHEROES! POWER POSE!</div>
+      <div class="preview-actions">
+        <button id="printBtn" class="arcade-button">PRINT</button>
+        <button id="retakeBtn" class="hidden arcade-button alt">RETAKE</button>
+      </div>
+      <div id="printError" class="warn hidden"></div>
+    </section>
+
+    <section id="printing" class="screen center">
+      <div class="spark-layer"></div>
+      <h1 class="headline mini">PRINTING...</h1>
+      <div class="progress"><span></span></div>
+      <div class="hint">Your print is on the way.</div>
+    </section>
+
+    <section id="qr" class="screen center">
+      <div class="spark-layer"></div>
+      <h1 class="headline mini">WANT MORE FUN?</h1>
+      <div class="qr-wrap">
+        <img id="qrImg" alt="QR" />
+      </div>
+      <p class="hint">Scan for bonus photos!</p>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpinShot Neon Mobile UI</title>
+  <link rel="stylesheet" href="/static/mobile_ui.css" />
+</head>
+<body>
+  <main id="app">
+    <section class="screen active" data-screen="1">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero start-tile">
+            <h1>STEP IN.</h1>
+            <h2>PRESS START</h2>
+            <button class="cta">START</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero spin-tile">
+            <h1>SPINNING<span class="dots">...</span></h1>
+            <div class="slot-grid">
+              <span>MAIN STAR</span><span>MOVIE STAR</span><span>MATCH STAR</span>
+              <span>CUTE MODE</span><span class="active">ROGUE SPY</span><span>CHUN SPY</span>
+              <span>MAIN STAR</span><span>MOVIE STAR</span><span>MAIN STAR</span>
+            </div>
+            <div class="mini-note">Camera primed 📷</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero mode-tile">
+            <div class="badge">LEGENDARY</div>
+            <h1>MODE:</h1>
+            <h2>MAIN CHARACTER</h2>
+            <p>Walk in like everyone’s watching.</p>
+            <div class="chips">
+              <span>CHIN UP</span><span>SLOW TURN</span><span>SMIRK</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero countdown-tile">
+            <h1>COUNTDOWN</h1>
+            <div class="count">3</div>
+            <p>Stay still for a second 👀</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero preview-tile">
+            <h1>CAPTURING... ICONIC.</h1>
+            <div class="preview-box"></div>
+            <div class="mode-label">MODE: MAIN CHARACTER</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero print-tile">
+            <h1>PRINTING...</h1>
+            <div class="progress"><span></span></div>
+            <p>Your print is on the way.</p>
+            <div class="printer"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="7">
+      <div class="cabinet">
+        <div class="glow-bar"></div>
+        <div class="panel single">
+          <article class="tile hero download-tile">
+            <h1>DOWNLOAD</h1>
+            <div class="qr"></div>
+            <p>Scan to download your photo.</p>
+            <div class="returning">Returning in 15s...</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="controls">
+    <button id="prev">Prev</button>
+    <span id="state">1 / 7</span>
+    <button id="next">Next</button>
+  </div>
+
+  <script>
+    const screens = [...document.querySelectorAll('.screen')];
+    let current = 0;
+    const stateEl = document.getElementById('state');
+
+    function render() {
+      screens.forEach((s, i) => s.classList.toggle('active', i === current));
+      stateEl.textContent = `${current + 1} / ${screens.length}`;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+      current = (current - 1 + screens.length) % screens.length;
+      render();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      current = (current + 1) % screens.length;
+      render();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') document.getElementById('next').click();
+      if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+    });
+  </script>
+</body>
+</html>

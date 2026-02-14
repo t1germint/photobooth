@@ -1,0 +1,254 @@
+:root {
+  --bg: #050916;
+  --cabinet: #0a1228;
+  --panel: #111a34;
+  --tile: #172348;
+  --text: #9de7ff;
+  --pink: #ff4fcf;
+  --blue: #4fd8ff;
+  --violet: #8d6dff;
+  --line: #27406d;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at 30% 20%, #182246, #050916 60%);
+  color: var(--text);
+}
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.screen.active { display: flex; }
+
+.cabinet {
+  width: min(700px, 95vw);
+  min-height: min(920px, 92vh);
+  border-radius: 34px;
+  padding: 26px 22px 22px;
+  background: linear-gradient(165deg, #0f1a36, #070d21);
+  border: 1px solid #24345f;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.65),
+    inset 0 0 0 2px rgba(79,216,255,.12),
+    inset 0 -20px 40px rgba(0,0,0,.4);
+  position: relative;
+}
+.glow-bar {
+  height: 6px;
+  border-radius: 99px;
+  margin: 4px 28px 16px;
+  background: linear-gradient(90deg, rgba(79,216,255,.2), rgba(255,79,207,.5), rgba(79,216,255,.2));
+  box-shadow: 0 0 16px rgba(79,216,255,.7);
+}
+
+.panel {
+  background: linear-gradient(180deg, #0b1430, #0a1128);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px rgba(79,216,255,.12);
+}
+.panel.single { min-height: calc(100% - 26px); }
+
+.tile {
+  min-height: 72vh;
+  border-radius: 16px;
+  border: 1px solid #2f4f88;
+  background: radial-gradient(circle at 20% 20%, #223566, #15254e 55%, #121f42);
+  box-shadow: inset 0 0 20px rgba(79,216,255,.16), 0 8px 20px rgba(0,0,0,.35);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: clamp(30px, 5.5vw, 46px);
+  color: #c6f5ff;
+  text-shadow: 0 0 14px rgba(79,216,255,.6);
+}
+h2 {
+  margin: 10px 0 0;
+  font-size: clamp(36px, 7vw, 58px);
+  color: #ffe86a;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(255,232,106,.7);
+}
+p {
+  margin: 14px 0;
+  font-size: 18px;
+  color: #a7c7e5;
+}
+
+.cta {
+  margin-top: auto;
+  border: 1px solid #5dc8ff;
+  border-radius: 999px;
+  padding: 14px 34px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #dffaff;
+  background: radial-gradient(circle at 30% 30%, #2d6fb8, #173b6f);
+  box-shadow: 0 0 18px rgba(79,216,255,.6), inset 0 0 20px rgba(79,216,255,.2);
+}
+
+.slot-grid {
+  margin-top: 18px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.slot-grid span {
+  min-height: 56px;
+  border-radius: 10px;
+  border: 1px solid #355f9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: linear-gradient(180deg, #1e335f, #17284d);
+  color: #b9dcff;
+}
+.slot-grid span.active {
+  color: #ffef9e;
+  border-color: #ffe66e;
+  box-shadow: inset 0 0 14px rgba(255,230,110,.3), 0 0 12px rgba(255,230,110,.45);
+}
+
+.mini-note { margin-top: auto; color: #8cb5da; }
+.badge {
+  align-self: flex-start;
+  background: linear-gradient(180deg, #ff73d8, #db35b6);
+  color: #ffe7ff;
+  border: 1px solid #ffb2ec;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  box-shadow: 0 0 12px rgba(255,79,207,.8);
+}
+.mode-tile h2 { color: #ffe4fc; text-shadow: 0 0 12px rgba(255,79,207,.6); }
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+.chips span {
+  border: 1px solid #4fcaff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #c7f2ff;
+  background: rgba(79,216,255,.08);
+}
+
+.count {
+  margin-top: 26px;
+  font-size: clamp(180px, 32vw, 280px);
+  line-height: .9;
+  color: #8ee9ff;
+  text-shadow: 0 0 30px rgba(79,216,255,.85);
+}
+
+.preview-box {
+  margin-top: 18px;
+  width: min(430px, 92%);
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  border: 1px solid #365c97;
+  background: radial-gradient(circle at 56% 40%, #2b2338, #0d1020 70%);
+  box-shadow: inset 0 -30px 40px rgba(0,0,0,.45), 0 0 18px rgba(79,216,255,.22);
+}
+.mode-label {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: .12em;
+  color: #cde7ff;
+}
+
+.progress {
+  width: min(430px, 92%);
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid #385f99;
+  background: rgba(11,19,38,.9);
+  overflow: hidden;
+  margin: 20px 0 8px;
+}
+.progress span {
+  display: block;
+  width: 58%;
+  height: 100%;
+  background: linear-gradient(90deg, #8d6dff, #ff4fcf);
+  box-shadow: 0 0 16px rgba(255,79,207,.75);
+}
+.printer {
+  margin-top: 22px;
+  width: min(320px, 80%);
+  height: 120px;
+  border-radius: 14px;
+  border: 1px solid #466da6;
+  background: linear-gradient(180deg, #223a67, #142547);
+  box-shadow: inset 0 0 16px rgba(79,216,255,.18), 0 0 14px rgba(79,216,255,.25);
+}
+
+.qr {
+  margin-top: 18px;
+  width: min(290px, 76%);
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  border: 1px solid #4c75b4;
+  background:
+    linear-gradient(90deg, rgba(124,175,255,.24) 10px, transparent 10px) 0 0/30px 30px,
+    linear-gradient(rgba(124,175,255,.24) 10px, transparent 10px) 0 0/30px 30px,
+    #0d1a35;
+  box-shadow: inset 0 0 14px rgba(79,216,255,.2), 0 0 14px rgba(79,216,255,.32);
+}
+.returning {
+  margin-top: auto;
+  color: #9bc6ee;
+  font-size: 14px;
+}
+
+.controls {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(7,13,28,.92);
+  border: 1px solid #2d4d84;
+  border-radius: 999px;
+  padding: 8px 10px;
+  box-shadow: 0 0 14px rgba(79,216,255,.25);
+}
+.controls button {
+  border: 1px solid #3d66a6;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #203967, #142748);
+  color: #c9edff;
+  padding: 7px 14px;
+}
+#state { min-width: 56px; text-align: center; color: #b8deff; font-weight: 700; }
+
+.dots { display: inline-block; width: 1.2em; text-align: left; animation: blink 1s infinite steps(3, end); }
+@keyframes blink { 0% {opacity:.2;} 50% {opacity:1;} 100% {opacity:.2;} }
